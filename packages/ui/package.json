@@ -9,9 +9,19 @@
         "dev": "tsup --wathc",
         "clean": "rm -rf dist"
     },
+    "dependencies": {
+        "zustand": "^5.0.4",
+        "react-native-popup-menu": "^0.17.0",
+        "react-native-select-dropdown": "^4.0.1",
+        "react-native-text-ticker": "^1.14.0",
+        "react-native-toggle-element": "^2.1.1"
+    },
     "devDependencies": {
         "@repo/typescript-config": "*",
+        "@types/react": "~19.0.10",
         "tsup": "^8.4.0",
-        "typescript": "^5.8.3"
+        "typescript": "^5.8.3",
+        "react": "19.0.0",
+        "react-native": "^0.79.2"
     }
 }

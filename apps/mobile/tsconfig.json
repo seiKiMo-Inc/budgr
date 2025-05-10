@@ -1,0 +1,41 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "allowImportingTsExtensions": true,
+    "noImplicitAny": false,
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": [
+        "src/*"
+      ],
+      "@ui/*": [
+        "src/ui/*"
+      ],
+      "@backend/*": [
+        "src/backend/*"
+      ],
+      "@pages/*": [
+        "app/*"
+      ],
+      "@modals/*": [
+        "src/ui/modals/*"
+      ],
+      "@widgets/*": [
+        "src/ui/widgets/*"
+      ],
+      "@styles/*": [
+        "src/ui/styles/*"
+      ],
+      "@stores/*": [
+        "src/backend/stores/*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ]
+}

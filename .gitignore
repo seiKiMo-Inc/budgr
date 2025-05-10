@@ -9,3 +9,11 @@
 
 # Node Modules
 node_modules
+
+# Expo
+.expo
+expo-env.d.ts
+
+# Build
+dist
+build
