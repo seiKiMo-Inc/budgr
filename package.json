@@ -4,6 +4,7 @@
     "version": "0.1.0",
     "private": true,
     "license": "MIT",
+    "packageManager": "bun@1.2.12",
     "scripts": {
         "build": "turbo build",
         "dev": "turbo dev",
