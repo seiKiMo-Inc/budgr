@@ -67,7 +67,7 @@
 
 [![Budgr Banner](images/banner.png)](https://budgr.net)
 
-Budgr is a budget management app designed for simplicity and ease-of-use. It was made for the [Hack Club](https://hackclub.com/) [Neighborhood](https://neighborhood.hackclub.com/) event
+Budgr is a budget management app designed for simplicity and ease-of-use. It was made for the [Hack Club](https://hackclub.com/) [Neighborhood](https://neighborhood.hackclub.com/) event.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
