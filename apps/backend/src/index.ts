@@ -2,11 +2,7 @@ import Elysia from "elysia";
 
 const app = new Elysia()
     .get("/health", () => "OK")
-    .listen(3000, listenCallback);
-
-function listenCallback(): void {
-    console.log("🔥 Web server is running on http://localhost:3000");
-}
+    .listen({ hostname: "0.0.0.0", port: 3000 });
 
 export default app;
 
