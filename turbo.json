@@ -12,6 +12,7 @@
             "persistent": true
         },
         "lint": {},
+        "test": {},
         "clean": {
             "cache": false
         }

@@ -4,7 +4,8 @@
     "private": true,
     "scripts": {
         "start": "bun src/index.ts",
-        "dev": "bun --watch run src/index.ts"
+        "dev": "bun --watch run src/index.ts",
+        "test": "bun test"
     },
     "dependencies": {
         "@repo/typescript-config": "*",
