@@ -18,7 +18,9 @@ export default defineConfig((options) => ({
         "react", "react-native",
 
         // 'rn-vector-icons' causes a lot of problems with the bundler.
-        "react-native-vector-icons"
+        "react-native-vector-icons",
+        // 'rn-safe-area-context' needs only one version.
+        "react-native-safe-area-context"
     ],
     dts: true,
     ...options

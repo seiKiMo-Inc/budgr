@@ -1,3 +1,7 @@
-// See https://docs.expo.dev/router/advanced/stack for more information.
+import { Stack } from "expo-router";
 
-console.log("Hello world from the initializer file!");
+function Layout() {
+    return <Stack />;
+}
+
+export default Layout;

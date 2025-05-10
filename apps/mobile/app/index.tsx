@@ -5,6 +5,8 @@ import { StatusBar } from "expo-status-bar";
 
 import { StyledButton, StyledText } from "@repo/ui";
 
+import "../global.css";
+
 function App() {
     // Or use this to get the router:
     // import { useRouter } from "expo-router";

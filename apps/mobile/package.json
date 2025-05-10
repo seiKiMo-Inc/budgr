@@ -1,7 +1,7 @@
 {
     "name": "@repo/mobile",
     "version": "0.0.0",
-    "main": "expo-router/entry",
+    "main": "index.js",
     "private": true,
     "scripts": {
         "dev": "expo start"
@@ -12,18 +12,22 @@
         "@rneui/base": "^4.0.0-rc.8",
         "@rneui/themed": "^4.0.0-rc.8",
         "expo": "^53.0.9",
-        "expo-constants": "^17.1.6",
+        "expo-constants": "~17.1.6",
         "expo-font": "^13.3.1",
-        "expo-linking": "^7.1.5",
-        "expo-router": "^5.0.6",
-        "expo-status-bar": "^2.2.3",
+        "expo-linking": "~7.1.4",
+        "expo-router": "~5.0.6",
+        "expo-status-bar": "~2.2.3",
         "nativewind": "^4.1.23",
         "react": "19.0.0",
         "react-native": "^0.79.2",
         "react-native-popup-menu": "^0.17.0",
+        "react-native-reanimated": "~3.17.4",
+        "react-native-safe-area-context": "5.4.0",
+        "react-native-screens": "~4.10.0",
         "react-native-select-dropdown": "^4.0.1",
         "react-native-text-ticker": "^1.14.0",
         "react-native-toggle-element": "^2.1.1",
+        "tailwindcss": "^3.4.17",
         "zustand": "^5.0.4"
     },
     "devDependencies": {
