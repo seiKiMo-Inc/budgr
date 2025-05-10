@@ -2,6 +2,7 @@
     "extends": "@repo/typescript-config/backend.json",
     "compilerOptions": {
         "strict": true,
+        "types": ["bun-types"],
         "allowImportingTsExtensions": true,
         "baseUrl": ".",
         "paths": {
