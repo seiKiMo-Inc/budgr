@@ -33,6 +33,12 @@
         "owner": "kingrainbow44",
         "plugins": [
             "expo-router"
-        ]
+        ],
+        "runtimeVersion": {
+            "policy": "appVersion"
+        },
+        "updates": {
+            "url": "https://u.expo.dev/34185472-ce25-4e13-be80-48a133ff726c"
+        }
     }
 }
