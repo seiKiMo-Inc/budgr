@@ -6,7 +6,10 @@
         "allowImportingTsExtensions": true,
         "baseUrl": ".",
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": ["./src/*"],
+            "@lib/*": ["./src/lib/*"],
+            "@models/*": ["./src/models/*"],
+            "@controllers/*": ["./src/controllers/*"],
         }
     }
 }
