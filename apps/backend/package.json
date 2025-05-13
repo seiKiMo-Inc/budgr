@@ -5,6 +5,7 @@
     "scripts": {
         "start": "bun src/index.ts",
         "dev": "bun --watch run src/index.ts",
+        "build": "bun build --compile --minify --target bun --outfile server src/index.ts",
         "test": "bun test"
     },
     "dependencies": {
