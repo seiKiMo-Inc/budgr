@@ -17,6 +17,7 @@
         "packages/*"
     ],
     "devDependencies": {
+        "@biomejs/biome": "1.9.4",
         "turbo": "^2.5.3"
     }
 }
