@@ -34,7 +34,7 @@
             "arrowParentheses": "asNeeded",
             "bracketSameLine": true,
             "semicolons": "always",
-            "trailingCommas": "all"
+            "trailingCommas": "none"
         }
 	}
 }
