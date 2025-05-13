@@ -41,7 +41,7 @@ function StyledTextInput(props: IProps) {
             inputStyle={{
                 color: colors.text,
                 borderBottomColor: "transparent",
-                ...(props.textStyle as object),
+                ...(props.textStyle as object)
             }}
             inputContainerStyle={props.inputStyle}
             containerStyle={props.containerStyle}

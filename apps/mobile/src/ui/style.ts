@@ -2,5 +2,5 @@
 // It is up to you to apply them, in order to remain consistency.
 
 export default {
-    padding: 15,
+    padding: 15
 };

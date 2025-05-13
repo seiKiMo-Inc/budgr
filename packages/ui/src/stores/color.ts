@@ -18,7 +18,7 @@ const useColor = create<ColorStore>()(() => ({
     contrast: "#FFFFFF",
 
     text: "#000000",
-    placeholder: "#A0A0A0",
+    placeholder: "#A0A0A0"
 }));
 
 export default useColor;

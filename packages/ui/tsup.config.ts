@@ -1,6 +1,6 @@
 import { defineConfig } from "tsup";
 
-export default defineConfig((options) => ({
+export default defineConfig(options => ({
     entry: {
         index: "src/index.tsx"
     },
@@ -15,7 +15,8 @@ export default defineConfig((options) => ({
     external: [
         // We remove these because they will be bundled
         // in the app.
-        "react", "react-native",
+        "react",
+        "react-native",
 
         // 'rn-vector-icons' causes a lot of problems with the bundler.
         "react-native-vector-icons",

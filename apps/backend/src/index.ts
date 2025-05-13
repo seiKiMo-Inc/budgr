@@ -1,5 +1,5 @@
-import Elysia from "elysia";
 import cors from "@elysiajs/cors";
+import Elysia from "elysia";
 
 import AuthController from "@controllers/auth.ts";
 

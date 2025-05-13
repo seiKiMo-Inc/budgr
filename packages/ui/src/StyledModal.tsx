@@ -36,7 +36,7 @@ function StyledModal(props: IProps) {
                 style={{
                     ...style.StyledModal,
                     backgroundColor: colors.secondary,
-                    ...(props.style as object),
+                    ...(props.style as object)
                 }}>
                 {props.title && (
                     <StyledText text={props.title} bold size={Size.Subheader} />
@@ -55,6 +55,6 @@ const style = StyleSheet.create({
         overflow: "hidden",
         justifyContent: "center",
         alignItems: "center",
-        padding: global.padding,
-    },
+        padding: global.padding
+    }
 });

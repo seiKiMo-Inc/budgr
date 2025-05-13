@@ -29,11 +29,11 @@ function StyledButton(props: IProps) {
             icon={props.icon}
             titleStyle={{
                 color: colors.text,
-                ...(props.titleStyle as object),
+                ...(props.titleStyle as object)
             }}
             buttonStyle={{
                 backgroundColor: colors.accent,
-                ...(props.buttonStyle as object),
+                ...(props.buttonStyle as object)
             }}
             disabledStyle={props.disabledStyle}
             containerStyle={props.style}

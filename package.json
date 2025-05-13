@@ -12,10 +12,7 @@
         "lint": "turbo lint",
         "format": "prettier -w ."
     },
-    "workspaces": [
-        "apps/*",
-        "packages/*"
-    ],
+    "workspaces": ["apps/*", "packages/*"],
     "devDependencies": {
         "@biomejs/biome": "1.9.4",
         "turbo": "^2.5.3"

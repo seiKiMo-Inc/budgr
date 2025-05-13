@@ -27,13 +27,13 @@ function StyledToggle(props: IProps) {
                 width: 50,
                 height: 15,
                 activeBackgroundColor: colors.accent,
-                inActiveBackgroundColor: colors.placeholder,
+                inActiveBackgroundColor: colors.placeholder
             }}
             thumbButton={{
                 width: 20,
                 height: 20,
                 activeBackgroundColor: colors.text,
-                inActiveBackgroundColor: colors.text,
+                inActiveBackgroundColor: colors.text
             }}
         />
     );
@@ -46,7 +46,7 @@ function StyledToggle(props: IProps) {
                 width: "100%",
                 alignItems: "center",
                 flexDirection: "row",
-                justifyContent: "space-between",
+                justifyContent: "space-between"
             }}>
             <StyledText text={props.title ?? ""} />
             {Switch}

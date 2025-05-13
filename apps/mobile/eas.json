@@ -1,37 +1,37 @@
 {
-  "cli": {
-    "version": ">= 5.6.0",
-    "appVersionSource": "remote"
-  },
-  "build": {
-    "development": {
-      "channel": "development",
-      "developmentClient": true,
-      "distribution": "internal",
-      "android": {
-        "buildType": "apk"
-      }
+    "cli": {
+        "version": ">= 5.6.0",
+        "appVersionSource": "remote"
     },
-    "preview": {
-      "channel": "preview",
-      "distribution": "store",
-      "autoIncrement": true,
-      "android": {
-        "buildType": "apk"
-      }
+    "build": {
+        "development": {
+            "channel": "development",
+            "developmentClient": true,
+            "distribution": "internal",
+            "android": {
+                "buildType": "apk"
+            }
+        },
+        "preview": {
+            "channel": "preview",
+            "distribution": "store",
+            "autoIncrement": true,
+            "android": {
+                "buildType": "apk"
+            }
+        },
+        "production": {
+            "channel": "production",
+            "autoIncrement": true
+        }
     },
-    "production": {
-      "channel": "production",
-      "autoIncrement": true
+    "submit": {
+        "production": {
+            "ios": {
+                "appleId": "asc@ayaka.one",
+                "ascAppId": "6745723862",
+                "appleTeamId": "LX2U7VU2K4"
+            }
+        }
     }
-  },
-  "submit": {
-    "production": {
-      "ios": {
-        "appleId": "asc@ayaka.one",
-        "ascAppId": "6745723862",
-        "appleTeamId": "LX2U7VU2K4"
-      }
-    }
-  }
 }

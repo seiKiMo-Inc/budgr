@@ -4,7 +4,7 @@ import {
     Menu,
     MenuOption,
     MenuOptions,
-    MenuTrigger,
+    MenuTrigger
 } from "react-native-popup-menu";
 
 import StyledText from "./StyledText.tsx";
@@ -42,7 +42,7 @@ function StyledMenu(props: IProps) {
             onBackdropPress={props.close}>
             <MenuTrigger
                 customStyles={{
-                    triggerOuterWrapper: style.StyledMenu_Trigger,
+                    triggerOuterWrapper: style.StyledMenu_Trigger
                 }}>
                 {props.children}
             </MenuTrigger>
@@ -53,8 +53,8 @@ function StyledMenu(props: IProps) {
                         ...style.StyledMenu_Container,
                         borderColor: colors.contrast,
                         backgroundColor: colors.secondary,
-                        ...(props.optionsStyle as object),
-                    },
+                        ...(props.optionsStyle as object)
+                    }
                 }}>
                 {props.options.map(
                     option =>
@@ -75,7 +75,7 @@ function StyledMenu(props: IProps) {
                                     {option.icon}
                                 </View>
                             </MenuOption>
-                        ),
+                        )
                 )}
             </MenuOptions>
         </Menu>
@@ -87,19 +87,19 @@ export default StyledMenu;
 const style = StyleSheet.create({
     StyledMenu: {
         position: "absolute",
-        right: 0,
+        right: 0
     },
     StyledMenu_Trigger: {
-        height: "100%",
+        height: "100%"
     },
     StyledMenu_Container: {
         borderRadius: 10,
         borderWidth: 1,
-        padding: 2,
+        padding: 2
     },
     StyledMenu_Option: {
         alignItems: "center",
         flexDirection: "row",
-        justifyContent: "space-between",
-    },
+        justifyContent: "space-between"
+    }
 });

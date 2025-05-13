@@ -9,7 +9,7 @@ export enum Size {
     Header = 24,
     Subheader = 20,
     Title = 32,
-    Subtitle = 28,
+    Subtitle = 28
 }
 
 interface IProps {
@@ -35,7 +35,7 @@ function StyledText(props: IProps) {
         textDecorationLine: props.underlined ? "underline" : "none",
         textTransform: props.uppercase ? "uppercase" : "none",
         fontSize: props.size || Size.Text,
-        ...(props.style as object),
+        ...(props.style as object)
     } satisfies StyleProp<TextStyle>;
 
     return !props.ticker ? (
