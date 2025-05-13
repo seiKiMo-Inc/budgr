@@ -26,9 +26,9 @@ jobs:
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
-            - name: Setup Bun
-              uses: oven-sh/setup-bun@v1
-            - name: Install dependencies
-              run: bun install --production
+            - name: Setup Biome
+              uses: biomejs/setup-biome@v2
+              with:
+                  version: latest
             - name: Run lint
-              run: bunx biome check
+              run: biome ci .
