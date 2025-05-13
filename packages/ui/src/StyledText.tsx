@@ -1,4 +1,4 @@
-import { StyleProp, Text, TextStyle } from "react-native";
+import { type StyleProp, Text, type TextStyle } from "react-native";
 import TextTicker from "react-native-text-ticker";
 
 import useColor from "./stores/color.ts";
@@ -22,7 +22,7 @@ interface IProps {
     uppercase?: boolean;
     underlined?: boolean;
 
-    style?: StyleProp<TextStyle> | any;
+    style?: StyleProp<TextStyle>;
     onPress?: () => void;
 }
 
@@ -35,8 +35,8 @@ function StyledText(props: IProps) {
         textDecorationLine: props.underlined ? "underline" : "none",
         textTransform: props.uppercase ? "uppercase" : "none",
         fontSize: props.size || Size.Text,
-        ...props.style,
-    };
+        ...(props.style as object),
+    } satisfies StyleProp<TextStyle>;
 
     return !props.ticker ? (
         <Text

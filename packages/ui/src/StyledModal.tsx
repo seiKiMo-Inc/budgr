@@ -1,5 +1,5 @@
-import { ReactElement } from "react";
-import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
+import type { ReactElement } from "react";
+import { type StyleProp, StyleSheet, View, type ViewStyle } from "react-native";
 
 import global from "@repo/mobile/src/ui/style.ts";
 
@@ -13,9 +13,9 @@ interface IProps {
     visible: boolean;
 
     title?: string;
-    children?: ReactElement | ReactElement[] | any | undefined;
+    children?: ReactElement | ReactElement[] | undefined;
 
-    style?: StyleProp<ViewStyle> | any;
+    style?: StyleProp<ViewStyle>;
     overlayStyle?: StyleProp<ViewStyle>;
 
     onLayout?: () => void;
@@ -36,7 +36,7 @@ function StyledModal(props: IProps) {
                 style={{
                     ...style.StyledModal,
                     backgroundColor: colors.secondary,
-                    ...props.style,
+                    ...(props.style as object),
                 }}>
                 {props.title && (
                     <StyledText text={props.title} bold size={Size.Subheader} />

@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
+import type { ReactNode } from "react";
+import { type StyleProp, StyleSheet, View, type ViewStyle } from "react-native";
 import {
     Menu,
     MenuOption,
@@ -22,8 +22,8 @@ interface OptionProp {
 interface IProps {
     children?: ReactNode | ReactNode[]; // Children is the trigger object.
 
-    style?: StyleProp<ViewStyle> | any;
-    optionsStyle?: StyleProp<ViewStyle> | any;
+    style?: StyleProp<ViewStyle>;
+    optionsStyle?: StyleProp<ViewStyle>;
 
     opened?: boolean;
     close?: () => void;
@@ -37,7 +37,7 @@ function StyledMenu(props: IProps) {
 
     return (
         <Menu
-            style={{ ...style.StyledMenu, ...props.style }}
+            style={{ ...style.StyledMenu, ...(props.style as object) }}
             opened={props.opened}
             onBackdropPress={props.close}>
             <MenuTrigger
@@ -53,7 +53,7 @@ function StyledMenu(props: IProps) {
                         ...style.StyledMenu_Container,
                         borderColor: colors.contrast,
                         backgroundColor: colors.secondary,
-                        ...props.optionsStyle,
+                        ...(props.optionsStyle as object),
                     },
                 }}>
                 {props.options.map(

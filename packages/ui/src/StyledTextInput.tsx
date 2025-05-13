@@ -1,8 +1,8 @@
-import { ColorValue, StyleProp, TextStyle, ViewStyle } from "react-native";
+import type { ColorValue, StyleProp, TextStyle, ViewStyle } from "react-native";
 
 import useColor from "./stores/color.ts";
 
-import { IconNode, Input } from "@rneui/base";
+import { type IconNode, Input } from "@rneui/base";
 
 interface IProps {
     default?: string;
@@ -15,9 +15,9 @@ interface IProps {
     maxLength?: number;
     lines?: number;
 
-    textStyle?: StyleProp<TextStyle> | any;
-    inputStyle?: StyleProp<ViewStyle> | any;
-    containerStyle?: StyleProp<ViewStyle> | any;
+    textStyle?: StyleProp<TextStyle>;
+    inputStyle?: StyleProp<ViewStyle>;
+    containerStyle?: StyleProp<ViewStyle>;
 
     errorMessage?: string;
 
@@ -41,7 +41,7 @@ function StyledTextInput(props: IProps) {
             inputStyle={{
                 color: colors.text,
                 borderBottomColor: "transparent",
-                ...props.textStyle,
+                ...(props.textStyle as object),
             }}
             inputContainerStyle={props.inputStyle}
             containerStyle={props.containerStyle}

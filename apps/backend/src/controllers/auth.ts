@@ -11,9 +11,8 @@ export default new Elysia({ name: "better-auth", prefix: "/auth" })
 
                 if (session) {
                     return { user: session.user, session: session.session };
-                } else {
-                    return status(401);
                 }
+                return status(401);
             }
         }
     });

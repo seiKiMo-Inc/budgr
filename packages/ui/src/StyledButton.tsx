@@ -1,8 +1,8 @@
-import { StyleProp, TextStyle, ViewStyle } from "react-native";
+import type { StyleProp, TextStyle, ViewStyle } from "react-native";
 
 import useColor from "./stores/color.ts";
 
-import { IconNode } from "@rneui/base";
+import type { IconNode } from "@rneui/base";
 import { Button } from "@rneui/themed";
 
 interface IProps {
@@ -11,9 +11,9 @@ interface IProps {
     disabled?: boolean;
 
     style?: StyleProp<ViewStyle>;
-    titleStyle?: StyleProp<TextStyle> | any;
+    titleStyle?: StyleProp<TextStyle>;
     disabledStyle?: StyleProp<ViewStyle>;
-    buttonStyle?: StyleProp<ViewStyle> | any;
+    buttonStyle?: StyleProp<ViewStyle>;
 
     onPress?: () => void;
     onHold?: () => void;
@@ -29,11 +29,11 @@ function StyledButton(props: IProps) {
             icon={props.icon}
             titleStyle={{
                 color: colors.text,
-                ...props.titleStyle,
+                ...(props.titleStyle as object),
             }}
             buttonStyle={{
                 backgroundColor: colors.accent,
-                ...props.buttonStyle,
+                ...(props.buttonStyle as object),
             }}
             disabledStyle={props.disabledStyle}
             containerStyle={props.style}

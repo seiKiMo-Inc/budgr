@@ -1,7 +1,7 @@
 // Learn more https://docs.expo.io/guides/customizing-metro
 const { getDefaultConfig } = require("expo/metro-config");
 const { withNativeWind } = require("nativewind/metro");
-const path = require("path");
+const path = require("node:path");
 
 // Find the workspace root, this can be replaced with `find-yarn-workspace-root`
 const workspaceRoot = path.resolve(__dirname, "../..");
