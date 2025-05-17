@@ -19,4 +19,7 @@ config.resolver.nodeModulesPaths = [
 // 3. Force Metro to resolve (sub)dependencies only from the `nodeModulesPaths`
 config.resolver.disableHierarchicalLookup = true;
 
+// better-auth: Resolve Better Auth exports.
+config.resolver.unstable_enablePackageExports = true;
+
 module.exports = withNativeWind(config, { input: "./global.css" });
