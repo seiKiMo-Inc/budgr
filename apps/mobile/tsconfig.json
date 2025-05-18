@@ -8,12 +8,19 @@
         "paths": {
             "@app/*": ["src/*"],
             "@ui/*": ["src/ui/*"],
-            "@backend/*": ["src/backend/*"],
+            "@backend/*": [
+                "src/backend/*",
+                "../backend/src/*"
+            ],
             "@pages/*": ["app/*"],
             "@modals/*": ["src/ui/modals/*"],
             "@widgets/*": ["src/ui/widgets/*"],
             "@styles/*": ["src/ui/styles/*"],
-            "@stores/*": ["src/backend/stores/*"]
+            "@stores/*": ["src/backend/stores/*"],
+
+            "@controllers/*": [
+                "../backend/src/controllers/*"
+            ]
         }
     },
     "include": [
