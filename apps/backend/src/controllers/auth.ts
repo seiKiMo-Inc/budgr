@@ -2,7 +2,7 @@ import Elysia from "elysia";
 
 import { auth } from "@lib/auth.ts";
 
-export default new Elysia({ name: "better-auth", prefix: "/auth" })
+export default new Elysia({ name: "Services.Auth", prefix: "/auth" })
     .mount(auth.handler)
     .macro({
         auth: {
