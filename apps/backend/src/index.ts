@@ -2,6 +2,7 @@ import cors from "@elysiajs/cors";
 import Elysia from "elysia";
 
 import AuthController from "@controllers/auth.ts";
+import UserController from "@controllers/user.ts";
 
 const app = new Elysia()
     .use(
@@ -12,8 +13,9 @@ const app = new Elysia()
             allowedHeaders: ["Content-Type", "Authorization"]
         })
     )
-    .get("/health", () => "OK")
     .use(AuthController)
+    .use(UserController)
+    .get("/health", () => "OK")
     .listen({ hostname: "0.0.0.0", port: 3000 });
 
 export default app;
