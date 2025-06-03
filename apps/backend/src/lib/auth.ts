@@ -11,11 +11,17 @@ const client = new MongoClient(
 const database = client.db();
 
 export const auth = betterAuth({
-    basePath: "/api",
+    basePath: "/api/auth",
     trustedOrigins: ["budgr://"],
     database: mongodbAdapter(database),
     plugins: [
         expo()
     ],
+    socialProviders: {
+        discord: {
+            clientId: process.env.DISCORD_CLIENT_ID as string,
+            clientSecret: process.env.DISCORD_CLIENT_SECRET as string
+        }
+    },
     emailAndPassword: { enabled: true }
 });
