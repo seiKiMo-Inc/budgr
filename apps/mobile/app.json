@@ -1,42 +1,47 @@
 {
-    "expo": {
-        "name": "Budgr",
-        "slug": "budgr",
-        "scheme": "budgr",
-        "version": "1.0.0",
-        "orientation": "portrait",
-        "icon": "./assets/icon.png",
-        "userInterfaceStyle": "automatic",
-        "splash": {
-            "image": "./assets/splash.png",
-            "resizeMode": "contain",
-            "backgroundColor": "#ffffff"
-        },
-        "ios": {
-            "supportsTablet": false,
-            "bundleIdentifier": "moe.seikimo.budgr"
-        },
-        "android": {
-            "adaptiveIcon": {
-                "foregroundImage": "./assets/adaptive-icon.png",
-                "backgroundColor": "#ffffff"
-            }
-        },
-        "experiments": {
-            "typedRoutes": true
-        },
-        "extra": {
-            "eas": {
-                "projectId": "34185472-ce25-4e13-be80-48a133ff726c"
-            }
-        },
-        "owner": "kingrainbow44",
-        "plugins": ["expo-router"],
-        "runtimeVersion": {
-            "policy": "appVersion"
-        },
-        "updates": {
-            "url": "https://u.expo.dev/34185472-ce25-4e13-be80-48a133ff726c"
-        }
+  "expo": {
+    "name": "Budgr",
+    "slug": "budgr",
+    "scheme": "budgr",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "moe.seikimo.budgr",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "34185472-ce25-4e13-be80-48a133ff726c"
+      }
+    },
+    "owner": "kingrainbow44",
+    "plugins": [
+      "expo-router"
+    ],
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/34185472-ce25-4e13-be80-48a133ff726c"
     }
+  }
 }
