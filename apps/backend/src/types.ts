@@ -1,4 +1,21 @@
-export type UserData = {};
+import type { Types } from "mongoose";
+
+export type UserData = unknown;
+
+export type Reminder = {
+    _id: Types.UUID;
+
+    /**
+     * The label of the reminder.
+     * This will be shown to the user.
+     */
+    label: string;
+
+    /**
+     * The associated payment in Budgr.
+     */
+    // payment: Types.UUID | undefined;
+};
 
 /**
  * Used in budgets, expenses, etc.

@@ -1,4 +1,5 @@
 import { Schema, type Types, model } from "mongoose";
+import type { Reminder } from "@/types.ts";
 
 export interface UserIncome {
     label: string;
@@ -11,7 +12,7 @@ const incomeSchema = new Schema<UserIncome>({
 });
 
 export interface User {
-    _id: Types.UUID;
+    _id: string;
     profile: Types.UUID;
     budget: Types.UUID;
     reminders: Types.UUID[];
@@ -20,7 +21,7 @@ export interface User {
 
 const userSchema = new Schema<User>(
     {
-        _id: Schema.Types.UUID,
+        _id: String,
         profile: {
             type: Schema.Types.UUID,
             ref: "Profile"

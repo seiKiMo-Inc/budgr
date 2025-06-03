@@ -1,16 +1,14 @@
-import { Schema, type Types, model } from "mongoose";
+import { Schema, model } from "mongoose";
 
-export interface Reminder {
-    _id: Types.UUID;
-    bill: string;
-}
+import type { Reminder as ReminderType } from "@/types.ts";
 
-const reminderSchema = new Schema<Reminder>(
+const reminderSchema = new Schema<ReminderType>(
     {
         _id: Schema.Types.UUID,
-        bill: String
+        label: { type: String, required: true },
+        // payment: { type: Schema.Types.UUID, required: false }
     }
 );
 
 
-export const Reminder = model<Reminder>("Reminder", reminderSchema);
+export const Reminder = model<ReminderType>("Reminder", reminderSchema);

@@ -2,7 +2,7 @@ import cors from "@elysiajs/cors";
 import Elysia from "elysia";
 
 import AuthController from "@controllers/auth.ts";
-import UserController from "@controllers/user.ts";
+import UserController from "@controllers/user/index.ts";
 
 const app = new Elysia()
     .use(
