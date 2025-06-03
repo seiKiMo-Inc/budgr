@@ -1,27 +1,47 @@
+import { useState } from "react";
 import { View } from "react-native";
 
-import { router } from "expo-router";
-import { StatusBar } from "expo-status-bar";
-
 import { StyledButton, StyledText } from "@repo/ui";
+
+import client from "@backend/client.ts";
+import { authClient } from "@backend/auth.ts";
 
 import "../global.css";
 
 function App() {
-    // Or use this to get the router:
-    // import { useRouter } from "expo-router";
-    // const router = useRouter();
+    const [status, setStatus] = useState<string | number>(-1);
 
     return (
         <View className={"flex-1 bg-white items-center justify-center gap-2"}>
-            <StatusBar style={"auto"} />
+            <StyledText text={`dev server: ${process.env.EXPO_PUBLIC_BASE_URL}`} />
 
-            <StyledText
-                text={"Open up src/App.tsx start working on your app!"}
-            />
+            {
+                status !== -1 && (
+                    <StyledText text={`status: ${status}`} />
+                )
+            }
+
             <StyledButton
-                text={"Go to test page"}
-                onPress={() => router.navigate("/test")}
+                text={"Hello World!"}
+                onPress={async () => {
+                    const response = await client.user.reminder.list.get();
+                    setStatus(response.status);
+                }}
+            />
+
+            <StyledButton
+                text={"Login"}
+                onPress={async () => {
+                    const { data, error } = await authClient.signIn.social({
+                        provider: "discord"
+                    });
+
+                    if (error) {
+                        console.error("Login error:", error);
+                    } else {
+                        console.log("Login success:", data);
+                    }
+                }}
             />
         </View>
     );
