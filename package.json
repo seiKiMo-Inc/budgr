@@ -9,8 +9,9 @@
         "build": "turbo build",
         "dev": "turbo dev",
         "test": "turbo test",
-        "lint": "turbo lint",
-        "format": "prettier -w ."
+        "format": "biome format --write",
+        "lint": "biome lint --error-on-warnings",
+        "check": "biome check --write"
     },
     "workspaces": ["apps/*", "packages/*"],
     "devDependencies": {

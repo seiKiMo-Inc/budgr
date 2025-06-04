@@ -3,8 +3,8 @@ import { View } from "react-native";
 
 import { StyledButton, StyledText } from "@repo/ui";
 
-import client from "@backend/client.ts";
 import { authClient } from "@backend/auth.ts";
+import client from "@backend/client.ts";
 
 import "../global.css";
 
@@ -14,21 +14,17 @@ function App() {
 
     return (
         <View className={"flex-1 bg-white items-center justify-center gap-2"}>
-            <StyledText text={`dev server: ${process.env.EXPO_PUBLIC_BASE_URL}`} />
+            <StyledText
+                text={`dev server: ${process.env.EXPO_PUBLIC_BASE_URL}`}
+            />
 
-            {
-                session ? (
-                    <StyledText text={`session: ${session.user.name}`} />
-                ) : (
-                    <StyledText text={"no session found"} />
-                )
-            }
+            {session ? (
+                <StyledText text={`session: ${session.user.name}`} />
+            ) : (
+                <StyledText text={"no session found"} />
+            )}
 
-            {
-                status !== -1 && (
-                    <StyledText text={`status: ${status}`} />
-                )
-            }
+            {status !== -1 && <StyledText text={`status: ${status}`} />}
 
             <StyledButton
                 text={"Hello World!"}

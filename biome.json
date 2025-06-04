@@ -7,7 +7,7 @@
     },
     "files": {
         "ignoreUnknown": false,
-        "ignore": [".expo/*", ".turbo/*", "dist/*"]
+        "include": ["apps/**/*.tsx", "packages/**/*.tsx"]
     },
     "formatter": {
         "enabled": true,
