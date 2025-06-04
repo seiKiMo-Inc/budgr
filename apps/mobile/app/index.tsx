@@ -9,11 +9,20 @@ import { authClient } from "@backend/auth.ts";
 import "../global.css";
 
 function App() {
+    const { data: session } = authClient.useSession();
     const [status, setStatus] = useState<string | number>(-1);
 
     return (
         <View className={"flex-1 bg-white items-center justify-center gap-2"}>
             <StyledText text={`dev server: ${process.env.EXPO_PUBLIC_BASE_URL}`} />
+
+            {
+                session ? (
+                    <StyledText text={`session: ${session.user.name}`} />
+                ) : (
+                    <StyledText text={"no session found"} />
+                )
+            }
 
             {
                 status !== -1 && (
@@ -32,16 +41,16 @@ function App() {
             <StyledButton
                 text={"Login"}
                 onPress={async () => {
-                    const { data, error } = await authClient.signIn.social({
-                        provider: "discord"
+                    await authClient.signIn.social({
+                        provider: "discord",
+                        callbackURL: "/"
                     });
-
-                    if (error) {
-                        console.error("Login error:", error);
-                    } else {
-                        console.log("Login success:", data);
-                    }
                 }}
+            />
+
+            <StyledButton
+                text={"Logout"}
+                onPress={async () => await authClient.signOut()}
             />
         </View>
     );
