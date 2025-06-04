@@ -6,7 +6,7 @@ on:
             - main
         paths:
             - apps/mobile/**
-            - packages/**
+            - packages/ui/**
     workflow_dispatch: ~
 
 jobs:

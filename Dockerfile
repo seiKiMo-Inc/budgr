@@ -1,5 +1,5 @@
 # ------------------------------------------------------
-FROM oven/bun as build
+FROM oven/bun AS build
 
 # Set the working directory.
 WORKDIR /app
@@ -21,7 +21,7 @@ RUN bun run build
 RUN mv server ../../server
 
 # ------------------------------------------------------
-FROM alpine:latest as run
+FROM debian:bookworm-slim AS run
 
 # Set the working directory.
 WORKDIR /app
