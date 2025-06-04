@@ -16,7 +16,7 @@ const app = new Elysia()
     .use(AuthController)
     .use(UserController)
     .get("/health", () => "OK")
-    .listen({ hostname: "0.0.0.0", port: 3000 });
+    .listen({ hostname: "0.0.0.0", port: process.env.OVERRIDE_PORT ?? 3000 });
 
 export default app;
 

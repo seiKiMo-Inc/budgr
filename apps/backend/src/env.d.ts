@@ -1,5 +1,7 @@
 declare module "bun" {
     interface Env {
+        OVERRIDE_PORT?: number;
+
         MONGODB_URI: string;
         CORS_ORIGIN: string;
 
