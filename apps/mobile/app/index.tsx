@@ -11,7 +11,6 @@ import "../global.css";
 
 function App() {
     const { data: session } = authClient.useSession();
-    const [status, setStatus] = useState<string | number>(-1);
 
     return (
         <View className={"flex-1 bg-white items-center justify-center gap-2"}>
@@ -24,20 +23,6 @@ function App() {
             ) : (
                 <StyledText text={"no session found"} />
             )}
-
-            {status !== -1 && <StyledText text={`status: ${status}`} />}
-
-            <StyledButton
-                text={"Hello World!"}
-                onPress={async () => {
-                    const response = await client.user.reminder.list.get({
-                        headers: { Cookie: authClient.getCookie() }
-                    });
-                    setStatus(response.status);
-                }}
-            />
-
-            <Link href={"/dev/text"}>Text Playground</Link>
 
             <StyledButton
                 text={"Login"}
@@ -53,6 +38,9 @@ function App() {
                 text={"Logout"}
                 onPress={async () => await authClient.signOut()}
             />
+
+            <Link href={"/dev/text"}>Text Playground</Link>
+            <Link href={"/dev/post"}>Post Playground</Link>
         </View>
     );
 }
