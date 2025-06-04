@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import { useState } from "react";
 import { View } from "react-native";
 
@@ -35,6 +36,8 @@ function App() {
                     setStatus(response.status);
                 }}
             />
+
+            <Link href={"/dev/text"}>Text Playground</Link>
 
             <StyledButton
                 text={"Login"}

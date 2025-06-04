@@ -35,7 +35,16 @@
     },
     "owner": "kingrainbow44",
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+          "expo-font",
+          {
+              "fonts": [
+                  "../../node_modules/@expo-google-fonts/sarala/400Regular/Sarala_400Regular.ttf",
+                  "../../node_modules/@expo-google-fonts/sarala/700Bold/Sarala_700Bold.ttf"
+              ]
+          }
+      ]
     ],
     "runtimeVersion": {
       "policy": "appVersion"
