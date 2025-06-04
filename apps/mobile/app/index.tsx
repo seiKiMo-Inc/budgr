@@ -29,7 +29,9 @@ function App() {
             <StyledButton
                 text={"Hello World!"}
                 onPress={async () => {
-                    const response = await client.user.reminder.list.get();
+                    const response = await client.user.reminder.list.get({
+                        headers: { Cookie: authClient.getCookie() }
+                    });
                     setStatus(response.status);
                 }}
             />
