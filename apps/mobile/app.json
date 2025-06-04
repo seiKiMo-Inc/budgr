@@ -20,7 +20,8 @@
       }
     },
     "android": {
-      "adaptiveIcon": {
+        "package": "moe.seikimo.budgr",
+        "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
