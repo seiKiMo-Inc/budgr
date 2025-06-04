@@ -12,8 +12,9 @@ export enum Size {
     Subtitle = 28
 }
 
-interface IProps {
-    text: string;
+type TextProp = { children: string } | { text: string };
+
+type IProps = TextProp & {
     lines?: number;
     size?: Size | number;
 
@@ -24,27 +25,30 @@ interface IProps {
 
     style?: StyleProp<TextStyle>;
     onPress?: () => void;
-}
+};
 
 function StyledText(props: IProps) {
     const colors = useColor();
 
     const style = {
         color: colors.text,
-        fontFamily: `Poppins_${props.bold ? "700Bold" : "400Regular"}`,
+        fontFamily: `Sarala_${props.bold ? "700Bold" : "400Regular"}`,
         textDecorationLine: props.underlined ? "underline" : "none",
         textTransform: props.uppercase ? "uppercase" : "none",
         fontSize: props.size || Size.Text,
         ...(props.style as object)
     } satisfies StyleProp<TextStyle>;
 
+    const text = "children" in props ? props.children : props.text;
+
     return !props.ticker ? (
         <Text
             style={style}
             ellipsizeMode={"tail"}
             numberOfLines={props.lines ?? 1}
-            onPress={props.onPress}>
-            {props.text}
+            onPress={props.onPress}
+        >
+            {text}
         </Text>
     ) : (
         <TextTicker
@@ -52,10 +56,11 @@ function StyledText(props: IProps) {
             ellipsizeMode={"tail"}
             numberOfLines={props.lines ?? 1}
             onPress={props.onPress}
-            duration={100 * props.text.length}
+            duration={100 * text.length}
             loop
-            bounce>
-            {props.text}
+            bounce
+        >
+            {text}
         </TextTicker>
     );
 }
