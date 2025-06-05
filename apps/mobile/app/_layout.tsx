@@ -1,9 +1,12 @@
+import { useEffect } from "react";
+
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
 import { Sarala_400Regular, Sarala_700Bold } from "@expo-google-fonts/sarala";
-import { useEffect } from "react";
+
+import "../global.css";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -28,7 +31,9 @@ function Layout() {
         <>
             <StatusBar style={"auto"} />
 
-            <Stack />
+            <Stack>
+                <Stack.Screen name={"(tabs)"} options={{ headerShown: false }} />
+            </Stack>
         </>
     );
 }

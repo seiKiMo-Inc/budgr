@@ -1,15 +1,11 @@
 import { Link } from "expo-router";
-import { useState } from "react";
 import { View } from "react-native";
 
 import { StyledButton, StyledText } from "@repo/ui";
 
 import { authClient } from "@backend/auth.ts";
-import client from "@backend/client.ts";
 
-import "../global.css";
-
-function App() {
+function Home() {
     const { data: session } = authClient.useSession();
 
     return (
@@ -45,4 +41,4 @@ function App() {
     );
 }
 
-export default App;
+export default Home;
