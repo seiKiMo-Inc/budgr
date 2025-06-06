@@ -12,7 +12,7 @@ export enum Size {
     Subtitle = 28
 }
 
-type TextProp = { children: string } | { text: string };
+type TextProp = { children: string | string[] } | { text: string };
 
 type IProps = TextProp & {
     lines?: number;
