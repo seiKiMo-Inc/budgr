@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
@@ -28,13 +29,13 @@ function Layout() {
     }
 
     return (
-        <>
+        <SafeAreaProvider>
             <StatusBar style={"auto"} />
 
             <Stack>
                 <Stack.Screen name={"(tabs)"} options={{ headerShown: false }} />
             </Stack>
-        </>
+        </SafeAreaProvider>
     );
 }
 
