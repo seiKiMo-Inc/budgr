@@ -10,7 +10,8 @@
             "@/*": ["./src/*"],
             "@lib/*": ["./src/lib/*"],
             "@models/*": ["./src/models/*"],
-            "@controllers/*": ["./src/controllers/*"]
+            "@controllers/*": ["./src/controllers/*"],
+            "@test/*": ["./test/*"]
         }
     }
 }

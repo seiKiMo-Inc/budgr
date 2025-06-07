@@ -1,3 +1,6 @@
 # Build artifacts
 server
 *.bun-build
+
+# Allow the test environment variables
+!.env.test

@@ -21,6 +21,7 @@
     "devDependencies": {
         "@repo/shared": "*",
         "bun-types": "^1.2.13",
+        "dotenv": "^16.5.0",
         "mockingoose": "^2.16.2",
         "typescript": "^5.8.3"
     }
