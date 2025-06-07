@@ -3,6 +3,7 @@ import Elysia from "elysia";
 
 import AuthController from "@controllers/auth.ts";
 import UserController from "@controllers/user/index.ts";
+import MessagesController from "@controllers/messages/index.ts";
 
 const app = new Elysia()
     .use(
@@ -15,6 +16,7 @@ const app = new Elysia()
     )
     .use(AuthController)
     .use(UserController)
+    .use(MessagesController)
     .get("/health", () => "OK")
     .listen({ hostname: "0.0.0.0", port: process.env.OVERRIDE_PORT ?? 3000 });
 

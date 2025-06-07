@@ -5,9 +5,10 @@ import { bearer } from "better-auth/plugins";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
 import { expo } from "@better-auth/expo";
+import { User } from "@models/User.ts";
 
 const client = new MongoClient(
-    process.env.MONGODB_URI ?? "mongodb://localhost:27017"
+    process.env.MONGODB_URI ?? "mongodb://localhost:27017/budgr"
 );
 const database = client.db();
 

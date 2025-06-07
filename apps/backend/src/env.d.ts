@@ -10,6 +10,6 @@ declare module "bun" {
         DISCORD_CLIENT_SECRET: string;
 
         /* Email & password authentication. */
-        REQUIRE_EMAIL_VERIFICATION: "true" | "false";
+        REQUIRE_EMAIL_VERIFICATION?: "true" | "false";
     }
 }
