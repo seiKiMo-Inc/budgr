@@ -28,7 +28,6 @@
             "quoteStyle": "double",
             "bracketSpacing": true,
             "arrowParentheses": "asNeeded",
-            "bracketSameLine": true,
             "semicolons": "always",
             "trailingCommas": "none"
         }
