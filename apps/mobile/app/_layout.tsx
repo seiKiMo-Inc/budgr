@@ -33,7 +33,10 @@ function Layout() {
             <StatusBar style={"auto"} />
 
             <Stack>
-                <Stack.Screen name={"(tabs)"} options={{ headerShown: false }} />
+                <Stack.Screen
+                    name={"(tabs)"}
+                    options={{ headerShown: false }}
+                />
             </Stack>
         </SafeAreaProvider>
     );

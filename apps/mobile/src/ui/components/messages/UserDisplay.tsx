@@ -47,7 +47,8 @@ export default UserDisplay;
 
 const css = StyleSheet.create({
     UserDisplay_Image: {
-        width: 48, height: 48,
+        width: 48,
+        height: 48,
         borderRadius: 100
     }
 });

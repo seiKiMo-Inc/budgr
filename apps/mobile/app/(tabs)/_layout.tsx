@@ -19,7 +19,11 @@ function Layout() {
                 options={{
                     title: "Messages",
                     tabBarIcon: ({ color }) => (
-                        <Feather name={"message-circle"} size={24} color={color} />
+                        <Feather
+                            name={"message-circle"}
+                            size={24}
+                            color={color}
+                        />
                     )
                 }}
             />

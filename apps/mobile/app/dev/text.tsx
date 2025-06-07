@@ -34,7 +34,8 @@ function TextPlayground() {
                         fontSize: 20,
                         fontWeight: 700,
                         fontFamily: "Sarala_700Bold"
-                    }}>
+                    }}
+                >
                     {text}
                 </Text>
                 <Text
@@ -42,7 +43,8 @@ function TextPlayground() {
                         fontSize: 17,
                         fontWeight: 700,
                         fontFamily: "Sarala_700Bold"
-                    }}>
+                    }}
+                >
                     {text}
                 </Text>
                 <Text
@@ -50,7 +52,8 @@ function TextPlayground() {
                         fontSize: 14,
                         fontWeight: 700,
                         fontFamily: "Sarala_700Bold"
-                    }}>
+                    }}
+                >
                     {text}
                 </Text>
                 <Text
@@ -58,7 +61,8 @@ function TextPlayground() {
                         fontSize: 12,
                         fontWeight: 700,
                         fontFamily: "Sarala_700Bold"
-                    }}>
+                    }}
+                >
                     {text}
                 </Text>
             </View>

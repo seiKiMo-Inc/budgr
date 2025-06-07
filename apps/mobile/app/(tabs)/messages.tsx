@@ -21,7 +21,9 @@ function Header() {
             }}
             className={"flex-col px-6 pb-4 gap-2"}
         >
-            <StyledText bold size={Size.Subheader}>Messages</StyledText>
+            <StyledText bold size={Size.Subheader}>
+                Messages
+            </StyledText>
 
             <View className={"flex-row items-center gap-2"}>
                 <TouchableOpacity
@@ -29,15 +31,23 @@ function Header() {
                     className={"p-2 rounded-full"}
                     style={{ backgroundColor: color.accent }}
                 >
-                    <Feather size={20} name={"search"} color={color.text.accent} />
+                    <Feather
+                        size={20}
+                        name={"search"}
+                        color={color.text.accent}
+                    />
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     activeOpacity={0.7}
-                    className={"flex-col flex-1 self-stretch justify-center items-center rounded-full"}
+                    className={
+                        "flex-col flex-1 self-stretch justify-center items-center rounded-full"
+                    }
                     style={{ backgroundColor: color.accent }}
                 >
-                    <StyledText color={color.text.accent}>Add Friends</StyledText>
+                    <StyledText color={color.text.accent}>
+                        Add Friends
+                    </StyledText>
                 </TouchableOpacity>
             </View>
         </View>

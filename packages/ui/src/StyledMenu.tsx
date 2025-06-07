@@ -39,11 +39,13 @@ function StyledMenu(props: IProps) {
         <Menu
             style={{ ...style.StyledMenu, ...(props.style as object) }}
             opened={props.opened}
-            onBackdropPress={props.close}>
+            onBackdropPress={props.close}
+        >
             <MenuTrigger
                 customStyles={{
                     triggerOuterWrapper: style.StyledMenu_Trigger
-                }}>
+                }}
+            >
                 {props.children}
             </MenuTrigger>
 
@@ -55,7 +57,8 @@ function StyledMenu(props: IProps) {
                         backgroundColor: colors.bg.secondary,
                         ...(props.optionsStyle as object)
                     }
-                }}>
+                }}
+            >
                 {props.options.map(
                     option =>
                         option && (
@@ -69,7 +72,8 @@ function StyledMenu(props: IProps) {
                                     ) {
                                         props.close?.();
                                     }
-                                }}>
+                                }}
+                            >
                                 <View style={style.StyledMenu_Option}>
                                     <StyledText text={option.text} />
                                     {option.icon}

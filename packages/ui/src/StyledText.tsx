@@ -1,4 +1,9 @@
-import { type ColorValue, type StyleProp, Text, type TextStyle } from "react-native";
+import {
+    type ColorValue,
+    type StyleProp,
+    Text,
+    type TextStyle
+} from "react-native";
 import TextTicker from "react-native-text-ticker";
 
 import useColor from "./stores/color.ts";

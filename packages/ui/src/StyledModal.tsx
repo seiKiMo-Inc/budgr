@@ -31,13 +31,15 @@ function StyledModal(props: IProps) {
             style={props.overlayStyle}
             onLayout={props.onLayout}
             onBackdropPress={props.onPressOutside}
-            overlayStyle={{ backgroundColor: "transparent" }}>
+            overlayStyle={{ backgroundColor: "transparent" }}
+        >
             <View
                 style={{
                     ...style.StyledModal,
                     backgroundColor: colors.bg.secondary,
                     ...(props.style as object)
-                }}>
+                }}
+            >
                 {props.title && (
                     <StyledText text={props.title} bold size={Size.Subheader} />
                 )}

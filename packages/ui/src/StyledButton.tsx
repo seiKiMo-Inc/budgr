@@ -19,16 +19,21 @@ interface IProps {
     onHold?: () => void;
 }
 
-type ButtonContent = { text?: string | undefined } | { children?: string | undefined };
+type ButtonContent =
+    | { text?: string | undefined }
+    | { children?: string | undefined };
 
 type ButtonProps = IProps & ButtonContent;
 
 function StyledButton(props: ButtonProps) {
     const colors = useColor();
 
-    const label = "children" in props ?
-        props.children : "text" in props ?
-            props.text : undefined;
+    const label =
+        "children" in props
+            ? props.children
+            : "text" in props
+              ? props.text
+              : undefined;
 
     return (
         <Button

@@ -1,7 +1,7 @@
-import { View } from "react-native";
-import { Image } from "expo-image";
-import { StyledText } from "@repo/ui";
 import { authClient } from "@backend/auth.ts";
+import { StyledText } from "@repo/ui";
+import { Image } from "expo-image";
+import { View } from "react-native";
 
 interface IProfileProps {
     username: string;

@@ -1,11 +1,7 @@
 import { View } from "react-native";
 
 function Settings() {
-    return (
-        <View>
-
-        </View>
-    );
+    return <View />;
 }
 
 export default Settings;

@@ -47,7 +47,8 @@ function StyledToggle(props: IProps) {
                 alignItems: "center",
                 flexDirection: "row",
                 justifyContent: "space-between"
-            }}>
+            }}
+        >
             <StyledText text={props.title ?? ""} />
             {Switch}
         </View>

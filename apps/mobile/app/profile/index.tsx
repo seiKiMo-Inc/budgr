@@ -1,11 +1,7 @@
 import { View } from "react-native";
 
 function Profile() {
-    return (
-        <View>
-
-        </View>
-    );
+    return <View />;
 }
 
 export default Profile;
