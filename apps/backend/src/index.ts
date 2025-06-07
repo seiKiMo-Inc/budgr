@@ -1,9 +1,16 @@
 import cors from "@elysiajs/cors";
 import Elysia from "elysia";
 
+import mongoose from "mongoose";
+
 import AuthController from "@controllers/auth.ts";
 import UserController from "@controllers/user/index.ts";
 import MessagesController from "@controllers/messages/index.ts";
+
+// Connect to MongoDB (for mongoose).
+await mongoose.connect(
+    process.env.MONGODB_URI ?? "mongodb://localhost:27017/budgr"
+);
 
 const app = new Elysia()
     .use(
