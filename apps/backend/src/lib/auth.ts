@@ -1,6 +1,7 @@
 import { MongoClient } from "mongodb";
 
 import { betterAuth } from "better-auth";
+import { bearer } from "better-auth/plugins";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
 import { expo } from "@better-auth/expo";
@@ -15,7 +16,9 @@ export const auth = betterAuth({
     trustedOrigins: ["budgr://"],
     database: mongodbAdapter(database),
     plugins: [
-        expo()
+        expo(),
+        // The 'bearer' plugin is only used in testing environments.
+        ...(process.env.NODE_ENV == "production" ? [] : [bearer()])
     ],
     emailAndPassword: {
         enabled: true,
