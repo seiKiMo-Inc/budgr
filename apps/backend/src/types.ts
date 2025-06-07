@@ -1,7 +1,5 @@
 import type { Types } from "mongoose";
 
-export type UserData = unknown;
-
 export type Reminder = {
     _id: Types.UUID;
 
