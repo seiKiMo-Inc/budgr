@@ -8,6 +8,7 @@
         "paths": {
             "@app/*": ["src/*"],
             "@ui/*": ["src/ui/*"],
+            "@hooks/*": ["src/hooks/*"],
             "@backend/*": [
                 "src/backend/*",
                 "../backend/src/*"

@@ -1,15 +1,26 @@
+import { Feather, FontAwesome } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
-import { FontAwesome } from "@expo/vector-icons";
 
 function Layout() {
     return (
-        <Tabs>
+        <Tabs screenOptions={{ headerShown: false }}>
             <Tabs.Screen
                 name={"index"}
                 options={{
                     title: "Home",
-                    headerShown: false,
-                    tabBarIcon: ({ color }) => <FontAwesome size={28} name={"home"} color={color} />
+                    tabBarIcon: ({ color }) => (
+                        <FontAwesome name={"home"} size={28} color={color} />
+                    )
+                }}
+            />
+
+            <Tabs.Screen
+                name={"messages"}
+                options={{
+                    title: "Messages",
+                    tabBarIcon: ({ color }) => (
+                        <Feather name={"message-circle"} size={24} color={color} />
+                    )
                 }}
             />
         </Tabs>
