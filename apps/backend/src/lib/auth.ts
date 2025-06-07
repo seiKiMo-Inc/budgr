@@ -31,5 +31,16 @@ export const auth = betterAuth({
             clientId: process.env.DISCORD_CLIENT_ID as string,
             clientSecret: process.env.DISCORD_CLIENT_SECRET as string
         }
+    },
+    databaseHooks: {
+        user: {
+            create: {
+                after: async (user) => {
+                    // Create a new user in the database after the account is created.
+                     const userData = new User({ _id: user.id });
+                     await userData.save();
+                }
+            }
+        }
     }
 });
