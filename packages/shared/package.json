@@ -1,0 +1,17 @@
+{
+    "name": "@repo/shared",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "clean": "rm -rf dist"
+    },
+    "devDependencies": {
+        "@repo/typescript-config": "*",
+        "tsup": "^8.4.0",
+        "typescript": "^5.8.3"
+    }
+}
