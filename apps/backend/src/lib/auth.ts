@@ -17,11 +17,19 @@ export const auth = betterAuth({
     plugins: [
         expo()
     ],
+    emailAndPassword: {
+        enabled: true,
+        requireEmailVerification: process.env.REQUIRE_EMAIL_VERIFICATION === "true"
+    },
+    emailVerification: {
+        sendVerificationEmail: async({ user, url, token }, request) => {
+            console.log(user, url, token, request);
+        }
+    },
     socialProviders: {
         discord: {
             clientId: process.env.DISCORD_CLIENT_ID as string,
             clientSecret: process.env.DISCORD_CLIENT_SECRET as string
         }
-    },
-    emailAndPassword: { enabled: true }
+    }
 });
