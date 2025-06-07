@@ -1,4 +1,4 @@
-name: Build Mobile App
+name: Build Mobile App (development)
 
 on:
     push:
@@ -37,26 +37,11 @@ jobs:
                 working-directory: ./apps/mobile
                 run: eas build --profile development --platform ios --local --non-interactive --output ${{ github.workspace }}/app-dev.ipa
 
-            -   name: Build all packages
-                run: bun run build
-            -   name: Build iOS app (preview)
-                working-directory: ./apps/mobile
-                run: eas build --profile preview --platform ios --local --non-interactive --output ${{ github.workspace }}/app-preview.ipa
-
             -   name: Upload IPA artifact
                 uses: actions/upload-artifact@v4
                 with:
                     name: development-build
                     path: ${{ github.workspace }}/app-dev.ipa
-
-            -   name: Upload IPA artifact
-                uses: actions/upload-artifact@v4
-                with:
-                    name: preview-build
-                    path: ${{ github.workspace }}/app-preview.ipa
-
-            -   name: Submit to TestFlight
-                run: eas submit -p ios --path=${{ github.workspace }}/app-preview.ipa
 
     android:
         runs-on: ubuntu-latest
@@ -89,24 +74,9 @@ jobs:
                 working-directory: ./apps/mobile
                 run: eas build --profile development --platform android --local --non-interactive --output ${{ github.workspace }}/app-dev.apk
 
-            -   name: Build all packages
-                run: bun run build
-            -   name: Build Android app (preview)
-                working-directory: ./apps/mobile
-                run: eas build --profile preview --platform android --local --non-interactive --output ${{ github.workspace }}/app-preview.apk
-
             -   name: Upload APK artifact
                 uses: actions/upload-artifact@v4
                 with:
                     name: development-build
                     path: ${{ github.workspace }}/app-dev.ipa
-
-            -   name: Upload APK artifact
-                uses: actions/upload-artifact@v4
-                with:
-                    name: preview-build
-                    path: ${{ github.workspace }}/app-preview.ipa
-
-            -   name: Submit to TestFlight
-                run: eas submit -p ios --path=${{ github.workspace }}/app-preview.ipa
 
