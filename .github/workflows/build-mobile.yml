@@ -30,13 +30,15 @@ jobs:
 
             -   name: Install dependencies
                 run: bun install --frozen-lockfile
+
             -   name: Build all packages
                 run: bun run build
-
             -   name: Build iOS app (development)
                 working-directory: ./apps/mobile
                 run: eas build --profile development --platform ios --local --non-interactive --output ${{ github.workspace }}/app-dev.ipa
 
+            -   name: Build all packages
+                run: bun run build
             -   name: Build iOS app (preview)
                 working-directory: ./apps/mobile
                 run: eas build --profile preview --platform ios --local --non-interactive --output ${{ github.workspace }}/app-preview.ipa
@@ -80,13 +82,15 @@ jobs:
 
             -   name: Install dependencies
                 run: bun install --frozen-lockfile
+
             -   name: Build all packages
                 run: bun run build
-
             -   name: Build Android app (development)
                 working-directory: ./apps/mobile
                 run: eas build --profile development --platform android --local --non-interactive --output ${{ github.workspace }}/app-dev.apk
 
+            -   name: Build all packages
+                run: bun run build
             -   name: Build Android app (preview)
                 working-directory: ./apps/mobile
                 run: eas build --profile preview --platform android --local --non-interactive --output ${{ github.workspace }}/app-preview.apk
