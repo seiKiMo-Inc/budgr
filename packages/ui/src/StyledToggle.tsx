@@ -27,13 +27,13 @@ function StyledToggle(props: IProps) {
                 width: 50,
                 height: 15,
                 activeBackgroundColor: colors.accent,
-                inActiveBackgroundColor: colors.placeholder
+                inActiveBackgroundColor: colors.text.placeholder
             }}
             thumbButton={{
                 width: 20,
                 height: 20,
-                activeBackgroundColor: colors.text,
-                inActiveBackgroundColor: colors.text
+                activeBackgroundColor: colors.text.primary,
+                inActiveBackgroundColor: colors.text.primary
             }}
         />
     );

@@ -34,12 +34,12 @@ function StyledTextInput(props: IProps) {
             numberOfLines={props.lines}
             multiline={(props.lines ?? 1) > 1}
             placeholder={props.default}
-            placeholderTextColor={props.defaultColor ?? colors.placeholder}
+            placeholderTextColor={props.defaultColor ?? colors.text.placeholder}
             rightIcon={props.icon}
             autoFocus={props.autoFocus}
             autoCorrect={props.autoCorrect}
             inputStyle={{
-                color: colors.text,
+                color: colors.text.primary,
                 borderBottomColor: "transparent",
                 ...(props.textStyle as object)
             }}

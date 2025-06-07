@@ -35,7 +35,7 @@ function StyledModal(props: IProps) {
             <View
                 style={{
                     ...style.StyledModal,
-                    backgroundColor: colors.secondary,
+                    backgroundColor: colors.bg.secondary,
                     ...(props.style as object)
                 }}>
                 {props.title && (

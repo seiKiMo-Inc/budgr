@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { StyleProp, TextStyle, ViewStyle } from "react-native";
 
 import useColor from "./stores/color.ts";
@@ -6,8 +7,7 @@ import type { IconNode } from "@rneui/base";
 import { Button } from "@rneui/themed";
 
 interface IProps {
-    text: string;
-    icon?: IconNode;
+    icon?: IconNode | ReactNode;
     disabled?: boolean;
 
     style?: StyleProp<ViewStyle>;
@@ -19,16 +19,24 @@ interface IProps {
     onHold?: () => void;
 }
 
-function StyledButton(props: IProps) {
+type ButtonContent = { text?: string | undefined } | { children?: string | undefined };
+
+type ButtonProps = IProps & ButtonContent;
+
+function StyledButton(props: ButtonProps) {
     const colors = useColor();
+
+    const label = "children" in props ?
+        props.children : "text" in props ?
+            props.text : undefined;
 
     return (
         <Button
             disabled={props.disabled}
-            title={props.text}
-            icon={props.icon}
+            title={label}
+            icon={props.icon as IconNode}
             titleStyle={{
-                color: colors.text,
+                color: colors.text.primary,
                 ...(props.titleStyle as object)
             }}
             buttonStyle={{

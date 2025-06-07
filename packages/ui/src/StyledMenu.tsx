@@ -52,7 +52,7 @@ function StyledMenu(props: IProps) {
                     optionsContainer: {
                         ...style.StyledMenu_Container,
                         borderColor: colors.contrast,
-                        backgroundColor: colors.secondary,
+                        backgroundColor: colors.bg.secondary,
                         ...(props.optionsStyle as object)
                     }
                 }}>
