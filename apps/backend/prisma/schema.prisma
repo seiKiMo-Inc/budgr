@@ -1,0 +1,69 @@
+datasource db {
+    provider = "mongodb"
+    url      = env("MONGODB_URI")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model User {
+    id String @id @map("_id")
+
+    // --- Relations ---
+
+    profile Profile?
+    messages Message[]
+    conversations Participant[]
+}
+
+model Profile {
+    id String @id @map("_id") @default(auto()) @db.ObjectId
+
+    // --- Relations ---
+
+    userId String @unique
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Participant {
+    id String @id @map("_id") @default(auto()) @db.ObjectId
+
+    conversationId String
+    conversation Conversation @relation(fields: [conversationId], references: [id])
+
+    userId String
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@unique([conversationId, userId])
+    @@index([userId])
+}
+
+model Conversation {
+    /** A conversation's ID is a Snowflake! */
+    id String @id @map("_id")
+
+    updatedAt DateTime @default(now()) @updatedAt
+
+    // --- Relations ---
+
+    messages Message[]
+    participants Participant[]
+}
+
+model Message {
+    /** A message's ID is a Snowflake! */
+    id String @id @map("_id")
+    content String
+
+    // --- Relations ---
+
+    conversationId String
+    conversation Conversation @relation(fields: [conversationId], references: [id])
+
+    senderId String
+    sender User @relation(fields: [senderId], references: [id])
+
+    @@index([conversationId])
+    @@index([senderId])
+}

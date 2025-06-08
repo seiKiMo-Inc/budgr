@@ -1,7 +1,6 @@
 import Elysia from "elysia";
 
 import { auth } from "@lib/auth.ts";
-import { User } from "@models/User.ts";
 
 export default new Elysia({ name: "Services.Auth" })
     .mount(auth.handler)
@@ -15,14 +14,8 @@ export default new Elysia({ name: "Services.Auth" })
                     return status(401);
                 }
 
-                // Fetch the data from the database.
-                const user = await User.findById(session.user.id);
-                if (!user) {
-                    return status(404);
-                }
-
                 // Return the user data.
-                return { user: session.user, session: session.session, userData: user };
+                return { user: session.user, session: session.session };
             }
         }
     });
