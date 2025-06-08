@@ -1,2 +1,2 @@
 [test]
-preload = ["./test/load-env.ts", "./test/clear-database.ts"]
+preload = ["./test/load-env.ts", "./test/setup-database.ts"]
