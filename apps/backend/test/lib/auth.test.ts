@@ -1,10 +1,15 @@
-import { afterAll, describe, expect, it } from "bun:test";
+import { afterAll, describe, expect, it, test } from "bun:test";
 import { createAuthClient } from "better-auth/client";
 
 /**
  * The global bearer token used for authentication in tests.
  */
-export let token: string | undefined = undefined;
+export let primaryToken: string | undefined = undefined;
+
+/**
+ * The global bearer token for the other user in tests.
+ */
+export let secondaryToken: string | undefined = undefined;
 
 export const authClient = createAuthClient({
     baseURL: "http://localhost:3000"
@@ -13,9 +18,9 @@ export const authClient = createAuthClient({
 /**
  * Creates a new account for testing purposes.
  */
-export async function createAccount(): Promise<void> {
+export async function createAccount(email: string): Promise<void> {
     const { error } = await authClient.signUp.email({
-        email: "example@example.com",
+        email,
         password: "password123",
         name: "Example User",
         image: "https://example.com/image.png"
@@ -27,17 +32,16 @@ export async function createAccount(): Promise<void> {
 /**
  * Ensures that the account exists before running tests.
  */
-export function ensureAccount(): Promise<void> {
+export function ensureAccount(email: string): Promise<string | undefined> {
     return new Promise(async (resolve, reject) => {
         const { error } = await authClient.signIn.email(
             {
-                email: "example@example.com",
+                email,
                 password: "password123"
             },
             {
                 onSuccess: (ctx) => {
-                    token = ctx.response.headers.get("set-auth-token") ?? undefined;
-                    resolve();
+                    resolve(ctx.response.headers.get("set-auth-token") ?? undefined);
                 }
             }
         );
@@ -53,8 +57,16 @@ describe("Better Auth", () => {
         expect(process.env.REQUIRE_EMAIL_VERIFICATION ?? "false").toBe("false");
     });
 
-    it("should create an account", async () => {
-        await createAccount();
-        await ensureAccount();
+    it("should be able to create accounts", async () => {
+        await createAccount("example@example.com");
+        await createAccount("foobar@example.com");
     });
+
+    test("that we can log in with the accounts", async () => {
+        primaryToken = await ensureAccount("example@example.com");
+        expect(primaryToken).toBeDefined();
+
+        secondaryToken = await ensureAccount("foobar@example.com");
+        expect(secondaryToken).toBeDefined();
+    })
 });
