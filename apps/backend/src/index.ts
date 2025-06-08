@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 
 import AuthController from "@controllers/auth.ts";
 import UserController from "@controllers/user/index.ts";
-import MessagesController from "@controllers/messages/index.ts";
+import ConversationsController from "@controllers/conversations/index.ts";
 
 // Connect to MongoDB (for mongoose).
 await mongoose.connect(
@@ -23,7 +23,7 @@ const app = new Elysia()
     )
     .use(AuthController)
     .use(UserController)
-    .use(MessagesController)
+    .use(ConversationsController)
     .get("/health", () => "OK")
     .listen({ hostname: "0.0.0.0", port: process.env.OVERRIDE_PORT ?? 3000 });
 
