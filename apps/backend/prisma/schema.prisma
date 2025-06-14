@@ -9,6 +9,7 @@ generator client {
 
 model User {
     id String @id @map("_id")
+    username String @unique
 
     // --- Relations ---
 
@@ -19,6 +20,8 @@ model User {
 
 model Profile {
     id String @id @map("_id") @default(auto()) @db.ObjectId
+    displayName String?
+    timezone String?
 
     // --- Relations ---
 
@@ -43,6 +46,8 @@ model Conversation {
     /** A conversation's ID is a Snowflake! */
     id String @id @map("_id")
 
+    name String @default("The Next Big Thing")
+    description String?
     updatedAt DateTime @default(now()) @updatedAt
 
     // --- Relations ---
