@@ -1,7 +1,7 @@
 import Elysia from "elysia";
 
 import AuthController from "@controllers/auth.ts";
-import { User } from "@repo/shared";
+import type { User } from "@/types.ts";
 import { prisma } from "@lib/db.ts";
 
 /**

@@ -1,5 +1,5 @@
 import Elysia, { t } from "elysia";
-import { Conversation$Type, Error$Type } from "@repo/shared";
+import { Conversation$Type, Error$Type } from "@/types.ts";
 
 import { generateSnowflake, prisma } from "@/lib";
 

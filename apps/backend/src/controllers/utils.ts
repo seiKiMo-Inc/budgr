@@ -1,4 +1,4 @@
-import type { Error } from "@repo/shared";
+import type { Error } from "@/types.ts";
 
 /**
  * Creates an error object with a message and timestamp.

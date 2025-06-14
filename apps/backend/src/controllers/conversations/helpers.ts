@@ -1,7 +1,7 @@
 import { prisma } from "@/lib";
 import { getUserById } from "@controllers/user";
 
-import type { Conversation } from "@repo/shared";
+import type { Conversation } from "@/types.ts";
 
 /**
  * Fetches the conversation specified by its ID.

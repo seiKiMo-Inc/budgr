@@ -1,25 +1,34 @@
-import type { Types } from "mongoose";
-
-export type Reminder = {
-    _id: Types.UUID;
-
-    /**
-     * The label of the reminder.
-     * This will be shown to the user.
-     */
-    label: string;
-
-    /**
-     * The associated payment in Budgr.
-     */
-    // payment: Types.UUID | undefined;
-};
+import { t } from "elysia";
 
 /**
- * Used in budgets, expenses, etc.
- * Anything which has a dollar amount with a label will use this type.
+ * This RPC type is used for errors while handling requests.
  */
-export type LabeledAmount = {
-    label: string;
-    amount: number;
-};
+export const Error$Type = t.Object({
+    error: t.String(),
+    timestamp: t.Number()
+});
+export type Error = typeof Error$Type.static;
+
+/**
+ * This RPC type is for public facing user data.
+ */
+export const User$Type = t.Object({
+    id: t.String(),
+    username: t.String(),
+    displayName: t.String(),
+    timezone: t.Optional(t.String())
+});
+export type User = typeof User$Type.static;
+
+/**
+ * A conversation is an intermediary mapping holding:
+ * - The users in the conversation
+ * - The messages in the conversation
+ * - The last timestamp of the conversation
+ */
+export const Conversation$Type = t.Object({
+    name: t.String(),
+    description: t.Nullable(t.String()),
+    users: t.Array(User$Type)
+});
+export type Conversation = typeof Conversation$Type.static;
