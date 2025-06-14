@@ -45,4 +45,14 @@ describe("Conversations Controller", () => {
         expect(status).toBe(201);
         expect(data).toHaveProperty("conversation");
     });
+
+    test("that the conversation exists", async () => {
+        // Get the conversations for the user.
+        const { status, data } = await client.conversations.get({
+            headers: { authorization: `Bearer ${primaryToken}` }
+        });
+        expect(status).toBe(200);
+        expect(data).toHaveProperty("conversations");
+        expect(data?.conversations?.length).toBe(1);
+    });
 });

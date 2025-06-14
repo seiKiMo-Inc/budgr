@@ -1,4 +1,4 @@
-import { afterAll, describe, expect, it, test } from "bun:test";
+import { describe, expect, it, test } from "bun:test";
 import { createAuthClient } from "better-auth/client";
 
 /**
@@ -26,7 +26,8 @@ export async function createAccount(email: string): Promise<void> {
         image: "https://example.com/image.png"
     });
 
-    expect(error).toBeNull();
+    expect(error?.message).toBeUndefined();
+    expect(error?.code).toBeUndefined();
 }
 
 /**

@@ -5,7 +5,7 @@ import type { Error } from "@repo/shared";
  *
  * @param message The error message to include in the error object.
  */
-export function error(message: string): Error {
+export function newError(message: string): Error {
     return {
         error: message,
         timestamp: Date.now()

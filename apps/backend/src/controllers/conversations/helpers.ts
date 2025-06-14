@@ -9,16 +9,11 @@ import type { Conversation } from "@repo/shared";
  *
  * @param id The ID of the conversation to fetch.
  */
-export async function getFullConversationById(id: string): Promise<Conversation | null> {
-    const conversation = await prisma.conversation.findFirst({
+export async function getFullConversationById(id: string): Promise<Conversation> {
+    const conversation = await prisma.conversation.findUniqueOrThrow({
         where: { id },
         include: { participants: true }
     });
-
-    // Check if the conversation exists.
-    if (!conversation) {
-        return null;
-    }
 
     return {
         name: conversation.name,
@@ -38,8 +33,7 @@ export async function getFullConversationById(id: string): Promise<Conversation 
 export async function addConversationParticipant(conversationId: string, userId: string): Promise<void> {
     // Check if the participant already exists.
     const existing = await prisma.participant.findFirst({
-        where: { conversationId, userId },
-        select: {}
+        where: { conversationId, userId }
     });
 
     if (existing) {

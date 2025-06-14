@@ -3,7 +3,7 @@ import { Conversation$Type, Error$Type } from "@repo/shared";
 
 import { generateSnowflake, prisma } from "@/lib";
 
-import { error } from "@/controllers";
+import { newError } from "@controllers/utils.ts";
 import UserController from "@controllers/auth.ts";
 
 import {
@@ -41,15 +41,23 @@ export default new Elysia({ prefix: "/conversations" })
                 }
             });
 
-            // Add the user to the conversation.
+            // Add the users to the conversation.
             await addConversationParticipant(id, user.id);
+            for (const userId of body.users) {
+                // Ensure the user exists before adding them.
+                const existingUser = await prisma.user.findUnique({
+                    where: { id: userId }
+                });
+                if (!existingUser) {
+                    set.status = 400;
+                    return newError(`User with ID ${userId} does not exist.`);
+                }
+                await addConversationParticipant(id, userId);
+            }
 
             // Query and return the full conversation.
             const conversation = await getFullConversationById(id);
-            if (!conversation) {
-                set.status = 500;
-                return error("Failed to create conversation.");
-            }
+            set.status = 201;
             return { conversation };
         },
         {
@@ -62,6 +70,10 @@ export default new Elysia({ prefix: "/conversations" })
                     conversation: Conversation$Type
                 }),
                 500: Error$Type
+            },
+            error({ error, set }) {
+                set.status = 500;
+                return newError(error.toString());
             }
         }
     );

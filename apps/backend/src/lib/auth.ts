@@ -40,12 +40,46 @@ export const auth = betterAuth({
         user: {
             create: {
                 after: async (user) => {
+                    // Generate a random username from the user's email.
+                    const username = generateUsername(user.email);
                     // Create a new user in the database after the account is created.
                     await prisma.user.create({
-                        data: { id: user.id }
+                        data: { id: user.id, username }
                     });
                 }
             }
         }
     }
 });
+
+/**
+ * Generates a random string of the specified length.
+ *
+ * @param length The length of the random string to generate.
+ */
+function generateRandomString(length: number): string {
+    const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        result += characters[randomIndex];
+    }
+    return result;
+}
+
+/**
+ * Generates a random username based on the provided email.
+ *
+ * @param email The email address to generate a username from.
+ */
+export function generateUsername(email: string): string {
+    if (!email.includes("@")) {
+        throw new Error("Invalid email address provided.");
+    }
+
+    // Generate a random string to append to the username.
+    const random = generateRandomString(6);
+
+    const [username] = email.split("@");
+    return `${username}.${random}`;
+}
