@@ -16,7 +16,7 @@ async function createConversation() {
         return;
     }
 
-    console.log("created conversation with id", data.conversation)
+    console.log("created conversation with id", data.conversation);
 }
 
 /**
@@ -29,9 +29,15 @@ async function deleteAllConversations() {
     }
 
     for (const conversation of data.conversations) {
-        const { status, data } = await client.conversations({ id: conversation.id }).delete();
+        const { status, data } = await client
+            .conversations({ id: conversation.id })
+            .delete();
         if (status !== 200) {
-            console.error("Failed to delete conversation:", conversation.id, data);
+            console.error(
+                "Failed to delete conversation:",
+                conversation.id,
+                data
+            );
         } else {
             console.log("Deleted conversation with id", conversation.id);
         }
@@ -41,15 +47,11 @@ async function deleteAllConversations() {
 function DirectMessagePlayground() {
     return (
         <View className={"flex-1 flex-col items-center justify-center gap-4"}>
-            <StyledButton
-                onPress={createConversation}
-            >
+            <StyledButton onPress={createConversation}>
                 Create Conversation
             </StyledButton>
 
-            <StyledButton
-                onPress={deleteAllConversations}
-            >
+            <StyledButton onPress={deleteAllConversations}>
                 Clear All
             </StyledButton>
         </View>

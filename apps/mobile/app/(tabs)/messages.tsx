@@ -10,7 +10,6 @@ import UserDisplay from "@ui/components/messages/UserDisplay.tsx";
 import useConversations from "@hooks/useConversations.ts";
 import { MockLastMessage } from "@repo/shared";
 import { FlashList } from "@shopify/flash-list";
-import { useFocusEffect } from "expo-router";
 
 function Header() {
     const color = useColor();
@@ -65,9 +64,7 @@ function UserList() {
     if (conversations.length === 0) {
         return (
             <View className={"flex-1 items-center justify-center gap-2 px-16"}>
-                <StyledText>
-                    You have no conversations yet.
-                </StyledText>
+                <StyledText>You have no conversations yet.</StyledText>
 
                 <StyledButton
                     style={{ borderRadius: 16 }}
@@ -83,7 +80,7 @@ function UserList() {
     return (
         <FlashList
             data={conversations}
-            renderItem={(props) => {
+            renderItem={props => {
                 const { item } = props;
                 const message = {
                     _id: item.users[0].id,
@@ -93,9 +90,7 @@ function UserList() {
                     timestamp: new Date(1749872370000)
                 };
 
-                return (
-                    <UserDisplay {...props} message={message} />
-                );
+                return <UserDisplay {...props} message={message} />;
             }}
             estimatedItemSize={50}
         />

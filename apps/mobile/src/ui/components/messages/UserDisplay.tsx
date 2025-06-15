@@ -1,4 +1,9 @@
-import { type StyleProp, StyleSheet, TouchableOpacity, View } from "react-native";
+import {
+    type StyleProp,
+    StyleSheet,
+    TouchableOpacity,
+    View
+} from "react-native";
 
 import type { LastMessage } from "@repo/shared";
 import { Size, StyledText, useColor } from "@repo/ui";
@@ -45,7 +50,9 @@ function UserDisplay({ style, message }: IProps) {
     return (
         <TouchableOpacity
             activeOpacity={0.7}
-            className={"p-2.5 flex-row justify-between items-start rounded-xl mb-2"}
+            className={
+                "p-2.5 flex-row justify-between items-start rounded-xl mb-2"
+            }
             style={{ backgroundColor: color.contrast, ...(style as object) }}
         >
             <View className={"flex-row items-center gap-3"}>
