@@ -16,6 +16,7 @@ config.resolver.nodeModulesPaths = [
     path.resolve(projectRoot, "node_modules"),
     path.resolve(workspaceRoot, "node_modules")
 ];
+config.resolver.sourceExts = ["jsx", "js", "ts", "tsx", "cjs"];
 
 // better-auth: Resolve Better Auth exports.
 config.resolver.unstable_enablePackageExports = true;
