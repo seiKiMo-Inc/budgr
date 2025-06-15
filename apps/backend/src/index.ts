@@ -22,8 +22,11 @@ const app = new Elysia()
             allowedHeaders: ["Content-Type", "Authorization"]
         })
     )
-    .onError(({ code, error }) => {
-        console.error("An error occurred:", error);
+    .onError(({ code, error, set }) => {
+        if (code == 401) {
+            set.status = 401;
+            return newError(401, "Unauthorized");
+        }
         return newError(code, error.toString());
     })
     .use(AuthController)

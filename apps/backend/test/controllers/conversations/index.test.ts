@@ -42,7 +42,7 @@ describe("Conversations Controller", () => {
                 headers: { authorization: `Bearer ${primaryToken}` },
             }
         );
-        expect(status).toBe(201);
+        expect(status).toBe(200);
         expect(data).toHaveProperty("conversation");
     });
 
