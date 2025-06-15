@@ -57,7 +57,6 @@ export default new Elysia({ prefix: "/conversations" })
 
             // Query and return the full conversation.
             const conversation = await getFullConversationById(id);
-            set.status = 201;
             return { conversation };
         },
         {

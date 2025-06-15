@@ -4,10 +4,13 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 
 import useUser from "@hooks/useUser.ts";
-import { Size, StyledText, useColor } from "@repo/ui";
+import { Size, StyledButton, StyledText, useColor } from "@repo/ui";
 import UserDisplay from "@ui/components/messages/UserDisplay.tsx";
 
+import useConversations from "@hooks/useConversations.ts";
 import { MockLastMessage } from "@repo/shared";
+import { FlashList } from "@shopify/flash-list";
+import { useFocusEffect } from "expo-router";
 
 function Header() {
     const color = useColor();
@@ -19,7 +22,7 @@ function Header() {
                 backgroundColor: color.bg.primary,
                 paddingTop: insets.top
             }}
-            className={"flex-col px-6 pb-4 gap-2"}
+            className={"flex-col pb-4 mb-2 gap-2"}
         >
             <StyledText bold size={Size.Subheader}>
                 Messages
@@ -56,13 +59,53 @@ function Header() {
 
 function UserList() {
     const color = useColor();
-    const user = useUser();
+    const conversations = useConversations();
 
+    // If the user has no conversations, we can't show the list.
+    if (conversations.length === 0) {
+        return (
+            <View className={"flex-1 justify-center gap-2 px-24"}>
+                <StyledText>
+                    You have no conversations yet.
+                </StyledText>
+
+                <StyledButton
+                    style={{ borderRadius: 16 }}
+                    titleStyle={{ color: color.text.accent }}
+                >
+                    Start a Conversation
+                </StyledButton>
+            </View>
+        );
+    }
+
+    // Otherwise, we show them their conversations.
     return (
-        <View className={"flex-col px-4 self-stretch gap-4"}>
-            <UserDisplay message={MockLastMessage} />
-        </View>
+        <FlashList
+            data={conversations}
+            renderItem={(props) => {
+                const { item } = props;
+                const message = {
+                    _id: item.users[0].id,
+                    displayName: item.users[0].displayName,
+                    profilePicture: MockLastMessage.profilePicture,
+                    content: "test",
+                    timestamp: new Date(1749872370000)
+                };
+
+                return (
+                    <UserDisplay {...props} message={message} />
+                );
+            }}
+            estimatedItemSize={50}
+        />
     );
+
+    // return (
+    //     <View className={"flex-col px-4 self-stretch gap-4"}>
+    //         <UserDisplay message={MockLastMessage} />
+    //     </View>
+    // );
 }
 
 function Messages() {
@@ -76,7 +119,7 @@ function Messages() {
 
     return (
         <View
-            className={"flex-1 flex-col"}
+            className={"flex-1 flex-col px-6"}
             style={{ backgroundColor: color.bg.primary }}
         >
             <Header />

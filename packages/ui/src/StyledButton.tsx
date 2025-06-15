@@ -41,7 +41,7 @@ function StyledButton(props: ButtonProps) {
             title={label}
             icon={props.icon as IconNode}
             titleStyle={{
-                color: colors.text.primary,
+                color: colors.text.accent,
                 ...(props.titleStyle as object)
             }}
             buttonStyle={{

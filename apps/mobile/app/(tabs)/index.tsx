@@ -7,6 +7,7 @@ function Home() {
             <Link href={"/dev/text"}>Text Playground</Link>
             <Link href={"/dev/post"}>Post Playground</Link>
             <Link href={"/dev/auth"}>Auth Playground</Link>
+            <Link href={"/dev/dm"}>DM Playground</Link>
         </View>
     );
 }
