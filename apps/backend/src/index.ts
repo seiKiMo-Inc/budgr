@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 import AuthController from "@controllers/auth.ts";
 import UserController from "@controllers/user/index.ts";
 import ConversationsController from "@controllers/conversations/index.ts";
+import { newError } from "@controllers/utils.ts";
 
 // Connect to MongoDB (for mongoose).
 await mongoose.connect(
@@ -21,6 +22,10 @@ const app = new Elysia()
             allowedHeaders: ["Content-Type", "Authorization"]
         })
     )
+    .onError(({ code, error }) => {
+        console.error("An error occurred:", error);
+        return newError(code, error.toString());
+    })
     .use(AuthController)
     .use(UserController)
     .use(ConversationsController)

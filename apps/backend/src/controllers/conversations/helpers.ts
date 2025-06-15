@@ -16,6 +16,7 @@ export async function getFullConversationById(id: string): Promise<Conversation>
     });
 
     return {
+        id,
         name: conversation.name,
         description: conversation.description,
         users: (await Promise.all(conversation.participants

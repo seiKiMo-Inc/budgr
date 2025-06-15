@@ -27,6 +27,7 @@ export type User = typeof User$Type.static;
  * - The last timestamp of the conversation
  */
 export const Conversation$Type = t.Object({
+    id: t.String(),
     name: t.String(),
     description: t.Nullable(t.String()),
     users: t.Array(User$Type)

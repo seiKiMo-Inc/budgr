@@ -64,7 +64,7 @@ function UserList() {
     // If the user has no conversations, we can't show the list.
     if (conversations.length === 0) {
         return (
-            <View className={"flex-1 justify-center gap-2 px-24"}>
+            <View className={"flex-1 items-center justify-center gap-2 px-16"}>
                 <StyledText>
                     You have no conversations yet.
                 </StyledText>

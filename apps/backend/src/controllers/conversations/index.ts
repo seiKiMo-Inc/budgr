@@ -27,6 +27,44 @@ export default new Elysia({ prefix: "/conversations" })
             })
         }
     )
+    .delete(
+        "/:id",
+        async ({ user, params }) => {
+            // Ensure the conversation exists.
+            const conversation = await prisma.conversation.findUnique({
+                where: { id: params.id }
+            });
+            if (!conversation) {
+                throw new Error(`Conversation with ID ${params.id} does not exist.`);
+            }
+
+            // Ensure the user is a participant in the conversation.
+            const participant = await prisma.participant.findFirst({
+                where: { conversationId: params.id, userId: user.id }
+            });
+            if (!participant) {
+                throw new Error(`You are not a participant in this conversation.`);
+            }
+
+            // Delete the conversation.
+            await prisma.conversation.delete({
+                where: { id: params.id }
+            });
+
+            return { success: true };
+        }
+    )
+    .get(
+        "/recents",
+        async ({ user }) => {
+            return "asdf";
+        },
+        {
+            response: t.Object({
+
+            })
+        }
+    )
     .post(
         "/new",
         async ({ user, body, set }) => {
@@ -49,8 +87,7 @@ export default new Elysia({ prefix: "/conversations" })
                     where: { id: userId }
                 });
                 if (!existingUser) {
-                    set.status = 400;
-                    return newError(`User with ID ${userId} does not exist.`);
+                    throw new Error(`User with ID ${userId} does not exist.`);
                 }
                 await addConversationParticipant(id, userId);
             }
@@ -72,7 +109,7 @@ export default new Elysia({ prefix: "/conversations" })
             },
             error({ error, set }) {
                 set.status = 500;
-                return newError(error.toString());
+                return newError(500, error.toString());
             }
         }
     );
